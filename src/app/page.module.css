@@ -1,0 +1,769 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--color-background);
+  padding: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.article {
+  max-width: 1000px;
+  width: 100%;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.title {
+  font-family: var(--font-dancing-script);
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  animation: fadeIn 2s ease-in;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  color: #666;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.heart {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  position: relative;
+  transform: rotate(45deg);
+  margin: 2rem auto 0;
+  animation: heartbeat 1.5s infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart:before {
+  top: -20px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: -20px;
+}
+
+.photoGallery {
+  padding: 4rem 2rem;
+  background: #fafafa;
+}
+
+.galleryTitle {
+  font-family: var(--font-dancing-script);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #000;
+  line-height: 1.2;
+}
+
+.photoStories {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.photoStory {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photoStory:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.photoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photoContainer:hover .photo {
+  transform: scale(1.05);
+}
+
+.storyContent {
+  padding: 1.5rem;
+}
+
+.storyText {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #444;
+  text-align: justify;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.content {
+  padding: 4rem 2rem;
+}
+
+.memorySection {
+  margin-bottom: 4rem;
+}
+
+.memorySection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #000;
+  text-align: center;
+  font-family: var(--font-dancing-script);
+  line-height: 1.2;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.memory {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.memory h3 {
+  color: #000;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-family: var(--font-dancing-script);
+}
+
+.memory p {
+  color: #666;
+  line-height: 1.8;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 2rem auto 0 auto;
+  padding: 2.5rem 2rem;
+  background: #fafafa;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 600px) {
+  .message {
+    padding: 1.2rem 0.5rem;
+    max-width: 97vw;
+    font-size: 1rem;
+  }
+}
+
+
+.message p {
+  color: #333;
+  font-size: 1.3rem;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.vinylDisc {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(145deg, var(--color-black), var(--color-text));
+  top: 50%;
+  right: -300px;
+  transform: translateY(-50%);
+  z-index: 0;
+  animation: rotate 20s linear infinite;
+  box-shadow: var(--shadow-lg);
+}
+
+.vinylDisc::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, 0.1) 3px,
+    rgba(255, 255, 255, 0.1) 4px
+  );
+}
+
+.vinylDisc::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle at center,
+    #4a90e2 0%,
+    #357abd 100%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+.vinylCenter {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f4f1ec;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.polaroidCamera {
+  position: relative;
+  z-index: 2;
+  background: #e6e2dd;
+  border-radius: 24px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 90vw;
+  width: 500px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.cameraTop {
+  background: #f0ece7;
+  height: 80px;
+  border-radius: 16px;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-md);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.lens {
+  width: 50px;
+  height: 50px;
+  background: #2a2a2a;
+  border-radius: 50%;
+  position: relative;
+  border: 4px solid #888;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.flash {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.viewfinder {
+  width: 20px;
+  height: 20px;
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+
+.exposureControl {
+  position: relative;
+  width: 100px;
+  height: 20px;
+  background: linear-gradient(to right, 
+    #ff6b6b,
+    #ffd93d,
+    #6bff6b,
+    #6b6bff
+  );
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.exposureKnob {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photoOutput {
+  background: #f7f4f0;
+  border-radius: 12px;
+  padding: var(--spacing-md);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.polaroidFrame {
+  background: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform var(--transition-normal);
+  border: none;
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+}
+
+.polaroidFrame:hover {
+  transform: translateY(-4px);
+}
+
+.photoContainer {
+  position: relative;
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.photoContainer img {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.datestamp {
+  font-family: "Courier New", monospace;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: auto;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+.modalContent {
+  position: relative;
+  max-width: 95vw;
+  width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  z-index: 1001;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .modalContent {
+    width: 97vw;
+    max-width: 97vw;
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-radius: 10px;
+  }
+}
+
+.modal .polaroidFrame {
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  box-shadow: none;
+  margin-bottom: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  .modal .polaroidFrame {
+    max-width: 95vw;
+    padding: var(--spacing-sm);
+  }
+}
+
+
+.modal .photoContainer {
+  width: 100%;
+  aspect-ratio: 4/5;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  margin-bottom: var(--spacing-md);
+  max-width: 320px;
+}
+
+@media (max-width: 600px) {
+  .modal .photoContainer {
+    max-width: 90vw;
+    aspect-ratio: 4/5;
+  }
+}
+
+
+.modal .photoContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.modal .message {
+  font-family: "Times New Roman", serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #2a2a2a;
+  max-width: 100%;
+  margin: 1.2rem auto 0 auto;
+  padding: 0 0.5rem;
+  white-space: normal;
+  flex: none;
+  overflow-y: visible;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .modal .message {
+    font-size: 1rem;
+    margin: 0.8rem auto 0 auto;
+    padding: 0;
+  }
+}
+
+
+.closeButton {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 12px;
+  color: #333;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.modalImageContainer {
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.modalMessage {
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+}
+
+.modalMessage p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+  font-style: italic;
+}
+
+@keyframes heartbeat {
+  0% { transform: rotate(45deg) scale(1); }
+  14% { transform: rotate(45deg) scale(1.3); }
+  28% { transform: rotate(45deg) scale(1); }
+  42% { transform: rotate(45deg) scale(1.3); }
+  70% { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(45deg) translateY(0) scale(1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(-100vh) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 1600px) {
+  .vinylDisc {
+    right: -400px;
+    width: 700px;
+    height: 700px;
+  }
+
+  .polaroidCamera {
+    width: 700px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .vinylDisc {
+    right: -500px;
+    width: 600px;
+    height: 600px;
+  }
+
+  .polaroidCamera {
+    width: 600px;
+  }
+
+  .photoGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: var(--spacing-md);
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .photoStory {
+    padding: 2rem;
+  }
+
+  .storyText {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+  
+  .content {
+    padding: 3rem 1.5rem;
+  }
+
+  .message p {
+    font-size: 1.2rem;
+  }
+
+  .polaroidCamera {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .cameraTop {
+    height: 60px;
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+
+  .lens {
+    width: 40px;
+    height: 40px;
+  }
+
+  .flash {
+    width: 25px;
+    height: 25px;
+  }
+
+  .viewfinder {
+    width: 15px;
+    height: 15px;
+  }
+
+  .exposureControl {
+    width: 80px;
+    height: 15px;
+  }
+
+  .exposureKnob {
+    width: 20px;
+    height: 20px;
+  }
+
+  .photoOutput {
+    min-height: 300px;
+  }
+
+  .modalContent {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    padding: var(--spacing-lg);
+  }
+
+  .modal {
+    padding: 0;
+  }
+
+  .modal .message {
+    font-size: 1.1rem;
+    max-width: 100%;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .closeButton {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .vinylDisc {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .photoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .polaroidFrame {
+    aspect-ratio: 4/5;
+  }
+
+  .modal {
+    padding: var(--spacing-sm);
+  }
+} 

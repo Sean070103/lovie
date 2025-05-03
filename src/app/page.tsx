@@ -1,103 +1,142 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import styles from './page.module.css';
+import DiscPlayer from './DiscPlayer';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const photos = [
+    { 
+      src: '/lovie/lovie_1.png', 
+      message: (
+        <>
+          <span className={styles.line}>From the very first moment I saw you,</span>
+          <span className={styles.line}>time stood still. My heart knew</span>
+          <span className={styles.line}>instantly that you were someone</span>
+          <span className={styles.line}>I would wait eternities for.</span>
+        </>
+      )
+    },
+    { 
+      src: '/lovie/lovie_2.png', 
+      message: (
+        <>
+          <span className={styles.line}>Your smile carries the</span>
+          <span className={`${styles.line} ${styles.warmth}`}>warmth</span>
+          <span className={styles.line}>of a <span className={styles.thousand}>thousand</span> suns. I</span>
+          <span className={styles.line}>promise to</span>
+          <span className={styles.line}>be your <span className={styles.constant}>constant</span>, your</span>
+          <span className={`${styles.line} ${styles.rock}`}>rock,</span>
+          <span className={styles.line}>your <span className={styles.harbor}>safe harbor</span>.</span>
+        </>
+      )
+    },
+    { 
+      src: '/lovie/lovie_3.png', 
+      message: (
+        <>
+          <span className={styles.line}>Every second with you is a treasure</span>
+          <span className={styles.line}>I hold dear. The universe may have</span>
+          <span className={styles.line}>its own timeline, but my heart beats</span>
+          <span className={styles.line}>in perfect sync with yours.</span>
+        </>
+      )
+    },
+    { 
+      src: '/lovie/lovie_5.png', 
+      message: 'In this vast world of uncertainty, my love for you remains unshakeable. Time is but a number when it comes to loving you.'
+    },
+    { 
+      src: '/lovie/lovie_6.png', 
+      message: 'Your love has given my life new meaning, new purpose. The depth of my feelings for you knows no bounds.'
+    },
+    { 
+      src: '/lovie/lovie_7.png', 
+      message: 'They say patience is a virtue, but waiting for you is a privilege. Every day apart only strengthens my resolve.'
+    },
+    { 
+      src: '/lovie/lovie_8.png', 
+      message: 'In the tapestry of my life, you are the golden thread that makes everything shine brighter.'
+    },
+    { 
+      src: '/lovie/lovie_9.png', 
+      message: 'My love for you transcends time itself. Years could pass like grains of sand, but my heart would remain steadfast and true.'
+    },
+    { 
+      src: '/lovie/lovie_10.png', 
+      message: 'These four months are just the beginning of our eternal story. I promise to cherish you, wait for you, and love you more deeply with each passing day.'
+    }
+  ];
+
+  return (
+    <main className={styles.main}>
+      <DiscPlayer />
+
+      {/* Only the Adorn Player box with Play/Stop buttons remains. Main disc image/component has been removed. */}
+
+      <div className={styles.polaroidCamera}>
+        <div className={styles.cameraTop}>
+          <div className={styles.lens}></div>
+          <div className={styles.flash}></div>
+          <div className={styles.viewfinder}></div>
+          <div className={styles.exposureControl}>
+            <div className={styles.exposureKnob}></div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className={styles.photoOutput}>
+          {photos.map((photo, index) => (
+            <div
+              key={index}
+              className={styles.polaroidFrame}
+              onClick={() => setSelectedPhoto(index)}
+            >
+              <div className={styles.photoContainer}>
+            <img
+                  src={photo.src}
+                  alt={`Memory ${index + 1}`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }}
+            />
+              </div>
+              <div className={styles.datestamp}>
+                {new Date().toLocaleDateString('en-US', { 
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric'
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {selectedPhoto !== null && (
+        <div className={styles.modal} onClick={() => setSelectedPhoto(null)}>
+          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <div className={styles.polaroidFrame}>
+              <div className={styles.photoContainer}>
+          <img
+                  src={photos[selectedPhoto].src}
+                  alt={`Memory ${selectedPhoto + 1}`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }}
+                />
+              </div>
+              <div className={styles.message}>
+                {photos[selectedPhoto].message}
+              </div>
+            </div>
+            <button 
+              className={styles.closeButton}
+              onClick={() => setSelectedPhoto(null)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+          </div>
     </div>
+      )}
+    </main>
   );
 }
