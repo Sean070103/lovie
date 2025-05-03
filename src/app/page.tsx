@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import DiscPlayer from './DiscPlayer';
+
 
 export default function Home() {
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
@@ -72,9 +72,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <DiscPlayer />
+      
 
-      {/* Only the Adorn Player box with Play/Stop buttons remains. Main disc image/component has been removed. */}
+
 
       <div className={styles.polaroidCamera}>
         <div className={styles.cameraTop}>
