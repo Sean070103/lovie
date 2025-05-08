@@ -301,7 +301,7 @@ export default function Home() {
             <p style={{ marginBottom: "1.2rem" }}>
               Our common ground is so extensive that I could wander the earth
               with you for a lifetime with nothing but feelings of wholeness,
-              joy, compassion—and happiness—because I would have all the talking
+              joy, compassion and happiness because I would have all the talking
               for you was effortless. Because when I faced my demons, they found
               yours and saved them away, leaving behind a crystal clear view of
               one another. It was as if we were destined to be seen... The other
