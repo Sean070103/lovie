@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #FF6B6B;
+  --secondary: #4ECDC4;
+  --accent: #FFE66D;
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
 }
 
 @theme inline {
@@ -14,16 +19,70 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A1A1A;
+    --foreground: #F5F5F5;
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    --accent: #FFE66D;
+    --text-primary: #F5F5F5;
+    --text-secondary: #B2BEC3;
   }
 }
 
 body, html {
-  background: #f6f5f1 !important;
-  color: #232323;
-  font-family: 'Segoe Print', 'Dancing Script', 'Caveat', 'Comic Sans MS', Arial, Helvetica, sans-serif;
+  background: var(--background) !important;
+  color: var(--text-primary);
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   width: 100vw;
-  transition: background 0.4s;
+  transition: all 0.4s ease-in-out;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* Focus Outline */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Link Styling */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary);
 }
