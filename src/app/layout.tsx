@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import StarsGalaxyBackground from './StarsGalaxyBackground';
 
 export default function RootLayout({
   children,
@@ -12,7 +13,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#4a90e2" />
         <meta name="description" content="Lovie - A responsive web application" />
       </head>
-      <body>{children}</body>
+      <body>
+        <StarsGalaxyBackground />
+        {children}
+      </body>
     </html>
   );
 }

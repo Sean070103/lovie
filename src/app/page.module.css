@@ -3,10 +3,15 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: var(--color-background);
+  background: #fffefb;
+  box-shadow: 0 8px 32px rgba(80, 70, 50, 0.15), 0 1.5px 6px rgba(80,70,50,0.06);
+  border-radius: 18px;
+  border: 1.5px solid #eae6dd;
   padding: var(--spacing-xl);
   position: relative;
   overflow: hidden;
+  margin: 36px auto 36px auto;
+  max-width: 520px;
 }
 
 .article {
@@ -752,6 +757,30 @@
   .vinylDisc {
     display: none;
   }
+}
+
+#love-letter-animate {
+  opacity: 0;
+  transform: perspective(700px) translateY(60px) scaleY(0.1) rotateX(-80deg) scale(0.95) rotate(-2deg);
+  transform-origin: top center;
+  box-shadow: 0 4px 24px rgba(80, 70, 50, 0.13);
+  border-top: 3px solid #eae6dd;
+  transition:
+    opacity 0.7s cubic-bezier(.4,1.6,.5,1),
+    transform 1.2s cubic-bezier(.4,1.6,.5,1),
+    box-shadow 0.3s cubic-bezier(.4,1.6,.5,1);
+  will-change: opacity, transform, box-shadow;
+}
+#love-letter-animate:not(.show):hover {
+  box-shadow: 0 10px 40px 4px rgba(80, 70, 50, 0.18);
+  transform: perspective(700px) translateY(40px) scaleY(0.13) rotateX(-70deg) scale(1.03) rotate(-2deg);
+  z-index: 2;
+}
+#love-letter-animate.show {
+  opacity: 1;
+  transform: perspective(700px) translateY(0) scaleY(1) rotateX(0deg) scale(1) rotate(-1.5deg);
+  box-shadow: 0 8px 32px rgba(80, 70, 50, 0.18), 0 1.5px 6px rgba(80,70,50,0.09);
+  border-top: 1.5px solid #eae6dd;
 }
 
 @media (max-width: 480px) {
